@@ -1,0 +1,18 @@
+<div class="header">
+    <div class="menu-title">
+        <fa-icon [icon]="burgerMenu" class="fa-2x" (click)="toggleDrawer()"></fa-icon>
+        <div class="title">
+            <img src="assets/photos/Group-6-e1677239421617.png" alt="logo">
+            <span style="color:#1D1D1D;">Pookiy-HR</span>&nbsp;<span style="color:#7F448E;">Bot</span>
+        </div>
+    </div>
+    <div class="time">
+        <app-current-time></app-current-time>
+    </div>
+    <div class="user">
+        <div class="photo"></div>
+        <p>{{ user }}</p>
+        <fa-icon [icon]="logout" class="fa-2x"></fa-icon>
+    </div>
+</div>
+

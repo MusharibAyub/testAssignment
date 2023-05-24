@@ -1,0 +1,35 @@
+<div class="menu">
+    <div class="menu-item" routerLink="">
+        <fa-icon [icon]="home" class="fa-light"></fa-icon>
+        &nbsp;
+        <span>Dashboard</span>
+    </div>
+    <div class="menu-item">
+        <fa-icon [icon]="time" class="fa-light"></fa-icon>
+        &nbsp;
+        <span>Timesheets</span>
+    </div>
+    <div class="menu-item-expandable">
+        <mat-accordion [hideToggle]="true">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <fa-icon [icon]="down" class="fa-light"></fa-icon>
+                        &nbsp;
+                        <fa-icon [icon]="clipboard" class="fa-light"></fa-icon>
+                        &nbsp;
+                        &nbsp;
+                        <span>Survey Dashboard</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>Clients</p>
+                <p routerLink="formsubmission">Submissions</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="menu-item">
+        <fa-icon [icon]="settings" class="fa-light"></fa-icon>
+        &nbsp;
+        <span>Settings</span>
+    </div>
+</div>

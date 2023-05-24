@@ -1,0 +1,9 @@
+<div class="leave">
+    <p>On Leave Today</p>
+    <div class="list">
+        <app-absent-item
+            *ngFor="let detail of details"
+            [details]="detail">
+        </app-absent-item>
+    </div>
+</div>

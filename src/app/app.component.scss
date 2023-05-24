@@ -1,0 +1,17 @@
+.mat-drawer-container {
+    min-height: 400px !important;
+    .mat-drawer {
+        width: 220px !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        background-color: #F5F5F5 !important;
+    }
+    .mat-drawer-content {
+        padding: 12px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        background-color: #F5F5F5 !important;
+        min-height: 400px !important;
+    }
+}

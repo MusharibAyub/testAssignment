@@ -1,0 +1,22 @@
+.leave {
+    height: 310px;
+    width: 275px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    p {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: #1D1D1D;
+        margin-bottom: 33px;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}

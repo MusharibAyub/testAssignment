@@ -1,0 +1,17 @@
+<div class="membership">
+    <div class="heading">
+        <span style="color: #FFFFFF;">Memebership Type:</span>
+        &nbsp;
+        <span style="color:#FC5290;">Standard</span>
+    </div>
+    <div class="payment">
+        <div class="cost">
+            <p class="heading">Total Cost:</p>
+            <p class="calculation">{{ period }} x {{ cost | currency: 'USD' }} =</p>
+            <p class="total">{{ (period*cost) | currency: 'USD'  }}</p>
+        </div>
+        <div class="paybutton">
+            <p>Pay Now</p>
+        </div>
+    </div>
+</div>
