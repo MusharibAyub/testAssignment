@@ -1,0 +1,15 @@
+.container {
+    padding-left: 76px;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .heading {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 28px;
+        color: #101828;   
+    }
+}

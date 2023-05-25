@@ -1,0 +1,64 @@
+<div class="sub-container">
+    <div class="search-filter">
+        <div class="search-box">
+            <input type="text" placeholder="Search Client">
+            <fa-icon [icon]="search"></fa-icon>
+        </div>
+        <div class="filters">
+            <div class="filter button">
+                <fa-icon [icon]="filter" class="fa-1x"></fa-icon>
+                <p>Filter</p>
+            </div>
+            <div class="applied button">
+                <fa-icon [icon]="close" class="fa-1x"></fa-icon>
+                <p>March</p>
+            </div>
+        </div>
+    </div>
+    <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="clientName">
+                <th mat-header-cell *matHeaderCellDef> Client Name </th>
+                <td mat-cell *matCellDef="let element"> 
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img [src]="element.img" alt="">{{element.clientName}}
+                    </div>
+                </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="dateSubmitted">
+              <th mat-header-cell *matHeaderCellDef> Date Submitted </th>
+              <td mat-cell *matCellDef="let element"> {{element.dateSubmitted | date:'d MMMM, yyyy'}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="responseType">
+              <th mat-header-cell *matHeaderCellDef> Response Type </th>
+              <td mat-cell *matCellDef="let element">
+                <div [ngClass]="{ 'positive': element.responseType === 'positive', 'negative': element.responseType === 'negative' }"
+                    style="height: 25px; width: fit-content; padding: 4px 12px 4px 12px; border-radius: 25px;"
+                    [ngStyle]="{ 
+                        'background-color': element.responseType === 'positive' ? '#EBF6EE' : '#FBF0EF', 
+                        'border': element.responseType === 'positive' ? 'solid 1px #34A153' : 'solid 1px #D6392D', 
+                        'color': element.responseType === 'positive' ? '#34A153' : '#D6392D' 
+                        }">
+                    {{ element.responseType }}
+                </div>
+              </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="processFlowRate">
+              <th mat-header-cell *matHeaderCellDef> Process Flow Rate </th>
+              <td mat-cell *matCellDef="let element"> {{element.processFlowRate}}/10 </td>
+            </ng-container>
+          
+            <tr 
+                mat-header-row *matHeaderRowDef="displayedColumns">
+            </tr>
+            <tr 
+                mat-row *matRowDef="let row; columns: displayedColumns; let i = index"
+                [ngStyle]="{'background-color': isOddRow(i) ? '#F9FAFB': '#FFFFFF'}" >
+            </tr>
+          </table>          
+    </div>
+</div>

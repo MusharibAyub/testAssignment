@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -24,6 +25,7 @@ import { HighlightsCardComponent } from './components/highlights-card/highlights
 import { AbsentListCardComponent } from './components/absent-list-card/absent-list-card.component';
 import { AbsentItemComponent } from './components/absent-item/absent-item.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { TableComponent } from './components/table/table.component';
 
 
 
@@ -46,7 +48,8 @@ const routes: Routes = [
     HighlightsCardComponent,
     AbsentListCardComponent,
     AbsentItemComponent,
-    GraphComponent
+    GraphComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ const routes: Routes = [
     MatSidenavModule,
     MatExpansionModule,
     MatIconModule,
-    MatAutocompleteModule
+    MatAutocompleteModule, 
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
