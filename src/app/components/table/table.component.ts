@@ -1,6 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { faSearch, faFilter, faClose } from '@fortawesome/free-solid-svg-icons';
+
+export interface Filters {
+  name: string,
+  month: number,
+  response: string,
+  flowRate: string,
+}
 
 export interface MyData {
   clientName: string,
@@ -29,7 +36,7 @@ export class TableComponent {
     {
       clientName: 'Client A',
       img: 'assets/photos/pic1.png',
-      dateSubmitted: new Date('2023-04-25T00:00:00.000Z'),
+      dateSubmitted: new Date('2023-10-25T00:00:00.000Z'),
       responseType: 'positive',
       processFlowRate: 8
     },
@@ -80,7 +87,7 @@ export class TableComponent {
       img: 'assets/photos/pic1.png',
       dateSubmitted: new Date('2023-05-25T00:00:00.000Z'),
       responseType: 'negative',
-      processFlowRate: 6
+      processFlowRate: 4
     },
     {
       clientName: 'Client I',
@@ -103,8 +110,59 @@ export class TableComponent {
   @Input()
   displayedColumns: string[] = ['clientName', 'dateSubmitted', 'responseType', 'processFlowRate', 'staticText'];
 
+  filters: Filters = {
+    name: '',
+    month: 99,
+    response: '',
+    flowRate: ''
+  }
+
   onFilter(input: Event) {
-    const value = (input.target as HTMLInputElement).value.trim();
-    this.dataSource = this.data.filter((data: MyData) => data.clientName.includes(value))
+    this.filters.name = (input.target as HTMLInputElement).value.trim();
+    this.masterFilter()
+  }
+
+  onFilterMonth(month: number) {
+    this.filters.month = month;
+    this.masterFilter()
+
+  }
+
+  onFilterResponse(response: string) {
+    this.filters.response = response;
+    this.masterFilter()
+  }
+
+  onFilterFlowRate(flowRate: string) {
+    this.filters.flowRate = flowRate;
+    this.masterFilter()
+  }
+
+  onRemove(filter: string) {
+    if(filter === 'month') {
+      this.filters.month = 99;
+    } else if(filter === 'response') {
+      this.filters.response = '';
+    } else if(filter === 'flowRate') {
+      this.filters.flowRate = '';
+    }
+    this.masterFilter()
+  }
+
+  masterFilter() {
+    this.dataSource = this.data.filter((data: MyData) => data.clientName.includes(this.filters.name))
+    this.dataSource = this.dataSource.filter((data: MyData) => this.filters.month === 99 ? true : data.dateSubmitted.getMonth() === this.filters.month - 1)
+    this.dataSource = this.dataSource.filter((data: MyData) => this.filters.response ? data.responseType === this.filters.response : true)
+    this.dataSource = this.dataSource.filter((data: MyData) => {
+      if (this.filters.flowRate) {
+        if ((this.filters.flowRate === 'positive' && data.processFlowRate > 5) || (this.filters.flowRate === 'negative' && data.processFlowRate <= 5)) {
+          return true
+        } else {
+          return false
+        }
+      } else {
+        return true
+      }
+    })
   }
 }

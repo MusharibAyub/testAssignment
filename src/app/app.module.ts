@@ -27,6 +27,7 @@ import { AbsentListCardComponent } from './components/absent-list-card/absent-li
 import { AbsentItemComponent } from './components/absent-item/absent-item.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
+import { MonthNamePipe } from './pipes/month-name.pipe';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
@@ -48,7 +49,8 @@ const routes: Routes = [
     AbsentListCardComponent,
     AbsentItemComponent,
     GraphComponent,
-    TableComponent
+    TableComponent,
+    MonthNamePipe
   ],
   imports: [
     BrowserModule,

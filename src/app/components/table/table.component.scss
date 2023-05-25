@@ -60,8 +60,9 @@
             }
             .applied {
                 background-color: #7F448E;
-                min-width: 98px;
+                padding-inline: 10px;
                 p {
+                    font-size: 10px;
                     color: #FFFFFF;
                 }
                 fa-icon {

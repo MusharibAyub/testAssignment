@@ -8,13 +8,21 @@
             <fa-icon [icon]="search"></fa-icon>
         </div>
         <div class="filters">
-            <div class="filter button">
+            <div class="filter button" [matMenuTriggerFor]="filtersMenu">
                 <fa-icon [icon]="filter" class="fa-1x"></fa-icon>
                 <p>Filter</p>
             </div>
-            <div class="applied button">
-                <fa-icon [icon]="close" class="fa-1x"></fa-icon>
-                <p>March</p>
+            <div class="applied button" *ngIf="filters.month < 99" >
+                <fa-icon [icon]="close" (click)="onRemove('month')"></fa-icon>
+                <p>{{ filters.month | monthName }}</p>
+            </div>
+            <div class="applied button" *ngIf="filters.response" >
+                <fa-icon [icon]="close" (click)="onRemove('response')"></fa-icon>
+                <p> Response Type({{ filters.response }})</p>
+            </div>
+            <div class="applied button" *ngIf="filters.flowRate" >
+                <fa-icon [icon]="close" (click)="onRemove('flowRate')"></fa-icon>
+                <p>Process Flow Rate({{ filters.flowRate }})</p>
             </div>
         </div>
     </div>
@@ -70,3 +78,35 @@
           </table>          
     </div>
 </div>
+
+
+<mat-menu #filtersMenu="matMenu" xPosition="before">
+    <div mat-menu-item [matMenuTriggerFor]="months">Month</div>
+    <div mat-menu-item [matMenuTriggerFor]="response" >Response Type</div>
+    <div mat-menu-item [matMenuTriggerFor]="flowRate">Process Flow Rate</div>
+</mat-menu>
+
+<mat-menu #months="matMenu" xPosition="before">
+    <div mat-menu-item (click)="onFilterMonth(1)">January</div>
+    <div mat-menu-item (click)="onFilterMonth(2)">February</div>
+    <div mat-menu-item (click)="onFilterMonth(3)">March</div>
+    <div mat-menu-item (click)="onFilterMonth(4)">April</div>
+    <div mat-menu-item (click)="onFilterMonth(5)">May</div>
+    <div mat-menu-item (click)="onFilterMonth(6)">June</div>
+    <div mat-menu-item (click)="onFilterMonth(7)">July</div>
+    <div mat-menu-item (click)="onFilterMonth(8)">August</div>
+    <div mat-menu-item (click)="onFilterMonth(9)">September</div>
+    <div mat-menu-item (click)="onFilterMonth(10)">October</div>
+    <div mat-menu-item (click)="onFilterMonth(11)">November</div>
+    <div mat-menu-item (click)="onFilterMonth(12)">December</div>
+</mat-menu>
+
+<mat-menu #response="matMenu" xPosition="before">
+    <div mat-menu-item (click)="onFilterResponse('positive')">Positive</div>
+    <div mat-menu-item (click)="onFilterResponse('negative')">Negative</div>
+</mat-menu>
+
+<mat-menu #flowRate="matMenu" xPosition="before">
+    <div mat-menu-item (click)="onFilterFlowRate('positive')">Positive</div>
+    <div mat-menu-item (click)="onFilterFlowRate('negative')">Negative</div>
+</mat-menu>
