@@ -78,6 +78,29 @@
         table {
             width: 100%;
             border: solid 1px #EAECF0;
+            .data {
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-size: 14px;
+                line-height: 20px;
+                color: #101828;
+            }
+            .name {
+                font-weight: 600;
+            }
+            .response {
+                height: 25px; 
+                width: fit-content; 
+                padding-inline: 12px; 
+                border-radius: 25px;
+                display: flex;
+                align-items: center;
+            }
+            .static {
+                color: #7F448E;
+                font-weight: 600;
+                cursor: pointer;
+            }
             .mat-mdc-header-row {
                 .mat-mdc-header-cell {
                     font-family: 'Montserrat';

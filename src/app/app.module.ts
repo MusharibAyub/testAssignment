@@ -8,6 +8,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
+import { MatMenuModule } from '@angular/material/menu'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -26,8 +27,6 @@ import { AbsentListCardComponent } from './components/absent-list-card/absent-li
 import { AbsentItemComponent } from './components/absent-item/absent-item.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
-
-
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: DashboardComponent },
@@ -60,7 +59,8 @@ const routes: Routes = [
     MatExpansionModule,
     MatIconModule,
     MatAutocompleteModule, 
-    MatTableModule
+    MatTableModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

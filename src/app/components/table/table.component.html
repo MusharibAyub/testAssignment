@@ -1,7 +1,10 @@
 <div class="sub-container">
     <div class="search-filter">
         <div class="search-box">
-            <input type="text" placeholder="Search Client">
+            <input 
+                (input)="onFilter($event)"
+                type="text" 
+                placeholder="Search Client">
             <fa-icon [icon]="search"></fa-icon>
         </div>
         <div class="filters">
@@ -20,7 +23,7 @@
 
             <ng-container matColumnDef="clientName">
                 <th mat-header-cell *matHeaderCellDef> Client Name </th>
-                <td mat-cell *matCellDef="let element"> 
+                <td mat-cell *matCellDef="let element" class="name data"> 
                     <div style="display: flex; align-items: center; gap: 10px;">
                         <img [src]="element.img" alt="">{{element.clientName}}
                     </div>
@@ -29,14 +32,14 @@
           
             <ng-container matColumnDef="dateSubmitted">
               <th mat-header-cell *matHeaderCellDef> Date Submitted </th>
-              <td mat-cell *matCellDef="let element"> {{element.dateSubmitted | date:'d MMMM, yyyy'}} </td>
+              <td mat-cell *matCellDef="let element" class="data"> {{element.dateSubmitted | date:'d MMMM, yyyy'}} </td>
             </ng-container>
           
             <ng-container matColumnDef="responseType">
               <th mat-header-cell *matHeaderCellDef> Response Type </th>
-              <td mat-cell *matCellDef="let element">
+              <td mat-cell *matCellDef="let element" class="data">
                 <div [ngClass]="{ 'positive': element.responseType === 'positive', 'negative': element.responseType === 'negative' }"
-                    style="height: 25px; width: fit-content; padding: 4px 12px 4px 12px; border-radius: 25px;"
+                    class="response"
                     [ngStyle]="{ 
                         'background-color': element.responseType === 'positive' ? '#EBF6EE' : '#FBF0EF', 
                         'border': element.responseType === 'positive' ? 'solid 1px #34A153' : 'solid 1px #D6392D', 
@@ -49,7 +52,12 @@
           
             <ng-container matColumnDef="processFlowRate">
               <th mat-header-cell *matHeaderCellDef> Process Flow Rate </th>
-              <td mat-cell *matCellDef="let element"> {{element.processFlowRate}}/10 </td>
+              <td mat-cell *matCellDef="let element" class="data"> {{element.processFlowRate}}/10 </td>
+            </ng-container>
+
+            <ng-container matColumnDef="staticText">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element" class="static data">View Submission</td>
             </ng-container>
           
             <tr 

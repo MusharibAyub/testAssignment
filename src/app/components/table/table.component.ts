@@ -2,6 +2,14 @@ import { Component, Input } from '@angular/core';
 
 import { faSearch, faFilter, faClose } from '@fortawesome/free-solid-svg-icons';
 
+export interface MyData {
+  clientName: string,
+  img: string,
+  dateSubmitted: Date,
+  responseType: string,
+  processFlowRate: number,
+}
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -17,7 +25,7 @@ export class TableComponent {
   }
 
   @Input()
-  dataSource = [
+  data: MyData[] = [
     {
       clientName: 'Client A',
       img: 'assets/photos/pic1.png',
@@ -47,7 +55,7 @@ export class TableComponent {
       processFlowRate: 9
     },
     {
-      clientName: 'Client E',
+      clientName: 'Johnney',
       img: 'assets/photos/pic1.png',
       dateSubmitted: new Date('2023-05-25T00:00:00.000Z'),
       responseType: 'positive',
@@ -90,6 +98,13 @@ export class TableComponent {
     }
   ];
 
+  dataSource = this.data;
+
   @Input()
-  displayedColumns: string[] = ['clientName', 'dateSubmitted', 'responseType', 'processFlowRate'];
+  displayedColumns: string[] = ['clientName', 'dateSubmitted', 'responseType', 'processFlowRate', 'staticText'];
+
+  onFilter(input: Event) {
+    const value = (input.target as HTMLInputElement).value.trim();
+    this.dataSource = this.data.filter((data: MyData) => data.clientName.includes(value))
+  }
 }
