@@ -118,7 +118,7 @@ export class TableComponent {
   }
 
   onFilter(input: Event) {
-    this.filters.name = (input.target as HTMLInputElement).value.trim();
+    this.filters.name = (input.target as HTMLInputElement).value.trim().toLowerCase();
     this.masterFilter()
   }
 
@@ -150,7 +150,7 @@ export class TableComponent {
   }
 
   masterFilter() {
-    this.dataSource = this.data.filter((data: MyData) => data.clientName.includes(this.filters.name))
+    this.dataSource = this.data.filter((data: MyData) => data.clientName.toLowerCase().includes(this.filters.name))
     this.dataSource = this.dataSource.filter((data: MyData) => this.filters.month === 99 ? true : data.dateSubmitted.getMonth() === this.filters.month - 1)
     this.dataSource = this.dataSource.filter((data: MyData) => this.filters.response ? data.responseType === this.filters.response : true)
     this.dataSource = this.dataSource.filter((data: MyData) => {

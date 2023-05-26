@@ -8,9 +8,12 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
-import { MatMenuModule } from '@angular/material/menu'
-
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+ 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { MonthNamePipe } from './pipes/month-name.pipe';
 
 import { AppComponent } from './app.component';
 
@@ -27,12 +30,11 @@ import { AbsentListCardComponent } from './components/absent-list-card/absent-li
 import { AbsentItemComponent } from './components/absent-item/absent-item.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
-import { MonthNamePipe } from './pipes/month-name.pipe';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'formsubmission', component: FormSubmissionsComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'dashboard' }
 ]
 
 @NgModule({
@@ -62,7 +64,8 @@ const routes: Routes = [
     MatIconModule,
     MatAutocompleteModule, 
     MatTableModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

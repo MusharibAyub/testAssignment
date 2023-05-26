@@ -2,8 +2,11 @@
     height: 310px;
     width: 275px;
     border-radius: 20px;
-    background-color: #ffffff;
+    background-image: url(../../../assets/photos/background2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px;
+    border: solid 2px #7F448E;
     p {
         font-family: 'Montserrat';
         font-style: normal;

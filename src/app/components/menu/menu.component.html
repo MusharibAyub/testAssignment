@@ -1,5 +1,5 @@
 <div class="menu">
-    <div class="menu-item" routerLink="">
+    <div class="menu-item" routerLink="dashboard" [routerLinkActive]="'active'">
         <fa-icon [icon]="home" class="fa-light"></fa-icon>
         &nbsp;
         <span>Dashboard</span>
@@ -23,7 +23,7 @@
                     </mat-panel-title>
                 </mat-expansion-panel-header>
                 <p>Clients</p>
-                <p routerLink="formsubmission">Submissions</p>
+                <p routerLink="formsubmission" [routerLinkActive]="'active'" >Submissions</p>
             </mat-expansion-panel>
         </mat-accordion>
     </div>

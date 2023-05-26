@@ -2,11 +2,17 @@
     <div class="head">
         <p>Logged Time Graph</p>
         <div class="controls">
-            <div class="selected"></div>
+            <div class="selected">asd</div>
             <div class="search-box">
                 <input type="text" placeholder="Search Employee">
                 <fa-icon [icon]="search"></fa-icon>
             </div>
+            <button mat-button [matMenuTriggerFor]="menu"> {{ selectedPeriod }} <fa-icon [icon]="down"></fa-icon></button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item (click)="changePeriod('7 Days')">7 Days</button>
+                <button mat-menu-item (click)="changePeriod('15 Days')">15 Days</button>
+                <button mat-menu-item (click)="changePeriod('30 Days')">30 Days</button>
+            </mat-menu>
         </div>
     </div>
     <div class="chart">

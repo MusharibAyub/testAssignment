@@ -6,7 +6,7 @@
     width: 370px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     .heading {
         font-family: 'Montserrat';
         font-style: normal;
@@ -17,6 +17,7 @@
     }
     .logged {
         height: 30px;
+        margin-bottom: 15px;
         .img-stack {
             position: relative;
             img {
