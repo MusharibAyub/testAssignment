@@ -2,7 +2,13 @@
     <div class="head">
         <p>Logged Time Graph</p>
         <div class="controls">
-            <div class="selected">asd</div>
+            <div class="container">
+                <div class="selected">
+                    <img [src]="theData[0].img" alt="img">
+                    <p>John Doe</p>
+                    <fa-icon [icon]="close"></fa-icon>
+                </div>
+            </div>
             <div class="search-box">
                 <input type="text" placeholder="Search Employee">
                 <fa-icon [icon]="search"></fa-icon>

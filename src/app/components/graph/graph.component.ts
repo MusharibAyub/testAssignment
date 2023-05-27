@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { faSearch, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faChevronDown, faClose } from '@fortawesome/free-solid-svg-icons'
 
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
@@ -14,6 +14,7 @@ export class GraphComponent implements OnInit {
 
   search = faSearch;
   down = faChevronDown;
+  close = faClose;
 
   chartInstance!: Chart;
 
@@ -25,18 +26,22 @@ export class GraphComponent implements OnInit {
   theData = [
     {
       name: 'John Doe',
+      img: 'assets/photos/pic1.png',
       hours: [0, 1, 2, 3, 2, 5, 4, 7, 6, 8, 9, 7, 9, 6, 8, 10, 9, 8, 5, 6, 7, 9, 10, 8, 5, 3, 2, 1, 0, 2]
     },
     {
       name: 'Jane Doe',
+      img: 'assets/photos/pic1.png',
       hours: [3, 4, 5, 7, 6, 9, 8, 11, 10, 9, 12, 10, 12, 9, 11, 1, 10, 11, 8, 9, 10, 12, 1, 8, 5, 4, 3, 2, 1, 3]
     },
     {
       name: 'James White',
+      img: 'assets/photos/pic1.png',
       hours: [9, 10, 11, 1, 0, 3, 2, 5, 4, 7, 6, 8, 10, 11, 9, 8, 5, 6, 7, 9, 11, 10, 8, 5, 4, 3, 2, 1, 0, 2]
     },
     {
       name: 'Steward Little',
+      img: 'assets/photos/pic1.png',
       hours: [6, 7, 8, 10, 9, 12, 11, 2, 1, 0, 3, 1, 3, 0, 2, 4, 3, 2, 11, 0, 1, 3, 5, 2, 11, 9, 8, 7, 6, 8]
     },
   ]
