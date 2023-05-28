@@ -12,15 +12,19 @@ Chart.register(...registerables);
 })
 export class GraphComponent implements OnInit {
 
+  //faIcon 
+
   search = faSearch;
   down = faChevronDown;
   close = faClose;
 
-  chartInstance!: Chart;
+  //Lifecycle Hooks
 
   ngOnInit(): void {
     this.renderChart();
   }
+
+  //Inputs
 
   @Input()
   theData = [
@@ -46,6 +50,9 @@ export class GraphComponent implements OnInit {
     },
   ]
 
+  //Chart Properties
+
+  chartInstance!: Chart;
 
   renderChart() {
     this.chartInstance = new Chart("lineChart", {
@@ -105,6 +112,8 @@ export class GraphComponent implements OnInit {
     });
   }
 
+  //Period Selection Code
+
   selectedPeriod = '7 Days';
 
   changePeriod(period: string) {
@@ -112,17 +121,6 @@ export class GraphComponent implements OnInit {
     this.chartInstance.destroy();
     this.renderChart();
   }
-
-  get splicedData() {
-    if (this.selectedPeriod === '7 Days') {
-      return this.theData[2].hours.slice(-7);
-    } else if (this.selectedPeriod === '15 Days') {
-      return this.theData[2].hours.slice(-15);
-    } else {
-      return this.theData[2].hours;
-    }
-  }
-  
 
   get label() {
     if (this.selectedPeriod === '7 Days') {
@@ -143,5 +141,17 @@ export class GraphComponent implements OnInit {
       dates.unshift(dateString);
     }
     return dates;
+  }
+  
+  //Data Selection Code
+
+  get splicedData() {
+    if (this.selectedPeriod === '7 Days') {
+      return this.theData[2].hours.slice(-7);
+    } else if (this.selectedPeriod === '15 Days') {
+      return this.theData[2].hours.slice(-15);
+    } else {
+      return this.theData[2].hours;
+    }
   }
 }
