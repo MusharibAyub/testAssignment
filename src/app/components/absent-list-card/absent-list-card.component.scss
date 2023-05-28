@@ -1,6 +1,10 @@
+:host {
+    flex: 0 1 275px;
+}
 .leave {
-    height: 310px;
-    width: 275px;
+    height: 360px;
+    width: auto;
+    box-sizing: border-box;
     border-radius: 20px;
     background-image: url(../../../assets/photos/background2.png);
     background-repeat: no-repeat;

@@ -1,9 +1,13 @@
+:host {
+    flex: 0 1 410px;
+}
 .highlights {
     border-radius: 20px;
     background-color: #ffffff;
     padding: 20px;
-    height: 124px;
-    width: 370px;
+    height: 164px;
+    width: auto;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 15px;

@@ -30,6 +30,7 @@ import { AbsentListCardComponent } from './components/absent-list-card/absent-li
 import { AbsentItemComponent } from './components/absent-item/absent-item.component';
 import { GraphComponent } from './components/graph/graph.component';
 import { TableComponent } from './components/table/table.component';
+import { DrawerComponent } from './components/drawer/drawer.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
@@ -52,7 +53,8 @@ const routes: Routes = [
     AbsentItemComponent,
     GraphComponent,
     TableComponent,
-    MonthNamePipe
+    MonthNamePipe,
+    DrawerComponent
   ],
   imports: [
     BrowserModule,

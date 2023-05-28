@@ -1,12 +1,13 @@
 .sub-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     gap: 12px;
     .search-filter {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding-right: 40px;
         height: 40px;
         .search-box {
             position: relative;
@@ -73,7 +74,7 @@
         }
     }
     .table-container {
-        width: 990px;
+        width: 97%;
         border-radius: 8px;
         overflow: hidden;
         table {

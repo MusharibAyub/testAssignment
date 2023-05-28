@@ -1,6 +1,10 @@
+:host {
+    flex: 0 1 825px;
+}
 .graph {
-    height: 330px;
-    width: 705px;
+    height: 360px;
+    width: auto;
+    box-sizing: border-box;
     border-radius: 20px;
     background-color: #ffffff;
     padding-top: 30px;

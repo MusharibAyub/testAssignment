@@ -1,6 +1,10 @@
+:host {
+    flex: 0 1 410px;
+}
 .membership {
-    height: 124px;
-    width: 370px;
+    height: 164px;
+    width: auto;
+    box-sizing: border-box;
     border-radius: 20px;
     background-image: url(../../../assets/photos/background1.png);
     background-repeat: no-repeat;

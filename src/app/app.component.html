@@ -1,9 +1,10 @@
 <app-header
     (drawerToggle)="toggleDrawer()">
 </app-header>
-<mat-drawer-container  hasBackdrop="false">
-  <mat-drawer #drawer mode="push" [opened]="drawerOpen"><app-menu></app-menu></mat-drawer>
-  <mat-drawer-content>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+<app-drawer
+  [open]="drawerOpen">
+  <app-menu class="menu"></app-menu>
+  <router-outlet class="content"></router-outlet>
+</app-drawer>
+
+
