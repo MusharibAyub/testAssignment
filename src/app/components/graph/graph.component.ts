@@ -190,7 +190,7 @@ export class GraphComponent implements OnInit {
   onSelection(data: any) {
     if(this.selectedEmp.length >= 2) {
       alert("Can't Select More Than Two")
-    } else {
+    } else if (!this.selectedEmp.find(x => x.label === data)) {
       this.searchControl.reset();
       const neededData = this.theData.find(obj => obj.name === data);
       const obj = {
@@ -198,9 +198,11 @@ export class GraphComponent implements OnInit {
         data: this.spliceData(neededData?.hours),
         borderColor: this.colors[this.selectedEmp.length],
         borderWidth: 3
-      }
+      } 
       this.selectedEmp.push(obj);
       this.chartRerender()
+    } else {
+      alert("Make another Selection")
     }
   }
 

@@ -6,9 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MonthNamePipe implements PipeTransform {
 
   transform(month: number): string {
-    const date = new Date();
-    date.setMonth(month - 1);
-    return date.toLocaleString('en-US', { month: 'long' });
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    return monthNames[month - 1];
   }
 
 }
