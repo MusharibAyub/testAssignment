@@ -3,16 +3,28 @@
         <p>Logged Time Graph</p>
         <div class="controls">
             <div class="container">
-                <div class="selected">
-                    <img [src]="theData[0].img" alt="img">
-                    <p>John Doe</p>
-                    <fa-icon [icon]="close"></fa-icon>
+                <div 
+                    class="selected" 
+                    *ngFor="let item of selectedEmp; let i = index"
+                    [ngStyle]="{ 'border-color': item.borderColor }">
+                    <img [src]="empImg(item.label)" alt="img">
+                    <p> {{ item.label }} </p>
+                    <fa-icon [icon]="close" (click)="deleteEmp(i)"></fa-icon>
                 </div>
             </div>
             <div class="search-box">
-                <input type="text" placeholder="Search Employee">
+                <input
+                    type="text" 
+                    placeholder="Search Employee"
+                    [formControl]="searchControl"
+                    [matAutocomplete]="auto">
                 <fa-icon [icon]="search"></fa-icon>
             </div>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="onSelection($event.option.value)">
+                <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                  {{option.name}}
+                </mat-option>
+            </mat-autocomplete>
             <button mat-button [matMenuTriggerFor]="menu"> {{ selectedPeriod }} <fa-icon [icon]="down"></fa-icon></button>
                 <mat-menu #menu="matMenu" xPosition="before">
                 <button mat-menu-item (click)="changePeriod('7 Days')">7 Days</button>
